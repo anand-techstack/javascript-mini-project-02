@@ -1,37 +1,44 @@
-@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&family=Poppins:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600;1,700;1,800&display=swap');
-
-*{
-    padding: 0;
+* {
     margin: 0;
+    padding: 0;
     box-sizing: border-box;
-    border: solid 1px black;
-}
-body{
+  }
+
+  body {
     height: 100vh;
-    width: 100%;
-}
-.main-container{
-    background-color:black !important;
-    font-family: "Poppins", sans-serif;
-    font-weight: 500;
-    font-style: normal;
     display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
-    color: white !important;
-    height: 100vh;
-}
-.clock-container
-{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #fff;
+    background-color: black;
+  }
+
+  .clock-container {
     border: solid white 5px;
     box-shadow: 0 8px 20px rgba(255, 242, 242, 0.5);
-}
-.row div{
-    transition: all ease-in-out 950;
-    cursor: pointer;
+    padding:30px 40px;
+    background-color: black;
+    text-align: center;
+  }
 
-}
-.row div:hover{
-    transform: scale(1.1);
-}
+  .time {
+    font-size: 60px;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(248, 6, 6, 0.795);
+  }
+
+  .date {
+    margin-top: 20px;
+    font-size: 24px;
+    color: #cfcfcf;
+    text-shadow: 0 0 10px rgba(248, 6, 6, 0.795);
+  }
+
+  .day {
+    margin-top: 10px;
+    font-size: 20px;
+    color: #aaaaaa;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px rgba(248, 6, 6, 0.795);
+  }
