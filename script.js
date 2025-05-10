@@ -1,26 +1,31 @@
+function updateClock() {
+  const date_object = new Date();
 
-function digital_time(){
-    
-    let dis_hours = document.getElementById('hours')
-    let dis_minutes = document.getElementById('minutes')
-    let dis_seconds = document.getElementById('seconds')
-    let dis_am_pm = document.getElementById('am_pm')
+  let hours = date_object.getHours();
+  const minutes = date_object.getMinutes();
+  const seconds = date_object.getSeconds();
+  const am_pm = hours >= 12 ? "PM" : "AM";
+  const format_hours = hours % 12 || 12;
 
-    let current_time = new Date()
-    let git_hours = current_time.getHours()
-    let git_minutes = current_time.getMinutes()
-    let git_seconds = current_time.getSeconds()
+  const timeString = `${String(format_hours).padStart(2, '0')} : ${String(minutes).padStart(2, '0')} : ${String(seconds).padStart(2, '0')} ${am_pm}`;
+  document.getElementById('time').textContent = timeString;
 
-    let hours_format = git_hours % 12 
-    let am_pm = git_hours > 12 ?'PM':'AM'
+  const months = [
+    'January', 'February', 'March', 'April', 'May', 'June',
+    'July', 'August', 'September', 'October', 'November', 'December'
+  ];
+  const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
-    let r_hours = am_pm < 10 ? '0' + am_pm : am_pm ;
-    let r_minutes = git_minutes < 10 ? '0' + git_minutes: git_minutes;
-    let r_seconds = git_seconds < 10 ? '0' + git_seconds : git_seconds;
+  const current_month = months[date_object.getMonth()];
+  const current_date = date_object.getDate();
+  const current_year = date_object.getFullYear();
+  const current_day = days[date_object.getDay()];
 
-    dis_hours.innerHTML = hours_format
-    dis_minutes.innerHTML = r_minutes
-    dis_seconds.innerHTML = r_seconds
-    dis_am_pm.innerHTML = am_pm
+  const dateString = `${current_month}, ${current_date}, ${current_year}`;
+  document.getElementById('date').textContent = dateString;
+  document.getElementById('day').textContent = current_day;
 }
-setInterval(digital_time,1000)
+
+setInterval(updateClock, 1000);
+updateClock(); // Call once initially
+
